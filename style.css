@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --main-color: hsla(240, 6%, 21%, 1);
+    --bg-buttonSound: hsla(240, 9%, 89%, 1);
+    --buttonSoundOn-color: hsla(194, 97%, 31%, 1);
+    --buttonImageSoundOn-color: #FFFFFF;
+
+    --h1-dark-color: #FFFFFF;
+    --bg-buttonSoundDark-color: #29292E;
+    --bg-buttonSoundOnDark-color: #0A3442;
+    --buttonImageSoundOnDark-color: #FFFFFF;
+    --svg-dark-color: #C4C4CC;
+    --bg-darkMode: #121214;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.timerMode {
+    position: absolute;
+    top: 6rem;
+    right: 6rem;
+}
+
+main{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    align-items: center;
+    width: 82.1rem;
+}
+
+.timerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: var(--main-color);
+    display: flex;
+    font-size: 10.6rem;
+    gap: 1rem;
+    font-weight: 50rem;
+    text-align: center;
+    line-height: 14.78rem;
+
+    animation: showElement 1.5s;
+}
+
+button {
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    animation: showElement 1.5s;
+}
+
+.forest-button-sound:hover, .rain-button-sound:hover,
+.cafeteria-button-sound:hover, .fireplace-button-sound:hover {
+    transform: scale(1.1);
+}
+
+.controlsDisplay {
+    display: flex;
+    gap: 4rem;
+}
+
+.soundsDisplay {
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.2rem;
+    row-gap: 3.2rem;
+}
+
+.forest-button-sound, .rain-button-sound,
+.cafeteria-button-sound, .fireplace-button-sound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    transition: transform 200ms;
+    animation: showElement 1.5s;
+}
+
+.soundForest, .soundRain, .soundCafeteria, .soundFireplace {
+    background-color: var(--bg-buttonSound);
+    border-radius: 2.4rem;
+    width: clamp(11rem, 11rem + 3vw,13.8rem);
+    height: 15.2rem;
+}
+
+.hide {
+    display: none;
+}
+
+.buttonSoundSelected {
+    background-color: var(--buttonSoundOn-color);
+}
+
+.svgSelectedPath {
+    fill: white;
+}
+
+.sliderVolume {
+    width: 9rem;
+
+    position: absolute;
+    z-index: 0;
+    bottom: 2.4rem;
+}
+
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    cursor: pointer;
+    border-radius: 5rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--main-color);
+    height: 0.4rem;
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: -0.6rem;
+    background-color: var(--main-color);
+}
+
+
+.button-sound-selected input[type="range"]::-webkit-slider-thumb, 
+.button-sound-selected input[type="range"]::-webkit-slider-runnable-track{
+  background-color: white;
+}
+
+.dark input[type="range"]::-webkit-slider-thumb, 
+.dark input[type="range"]::-webkit-slider-runnable-track{
+  background-color: white;
+}
+
+.darkModeBackground {
+    background: var(--bg-darkMode);
+}
+
+.dark-h1-modifier {
+    color: var(--h1-dark-color);
+}
+
+.dark-svg-modifier {
+    fill: var(--svg-dark-color);
+}
+
+.dark-buttonSound {
+    background-color: var(--bg-buttonSoundDark-color);
+}
+
+.dark-buttonSoundSelected {
+    background-color: var(--bg-buttonSoundOnDark-color);
+}
+
+.dark-svgSelectedPath {
+    fill: var(--buttonImageSoundOnDark-color);
+}
+
+@media (min-width: 1024px) {
+    main {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 19.2rem;
+        align-items: center;
+        place-content: center;
+        justify-items: center;
+    }
+
+    h1 {
+        font-size: 12.6rem;
+    }
+}
+
+@keyframes showElement {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
